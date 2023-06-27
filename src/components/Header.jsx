@@ -1,12 +1,14 @@
 import "../css/header.css"
-
+import cookie from "../assets/cookie.png"
 function Header() {
 
     return (
         <div>
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Rotten Cookies</a>
+    <a className="navbar-brand" href="#">
+            <img src={cookie} alt="Rotten Cookies Logo" className="logo" style={{ width: "30px", height: "30px" }} /> Rotten Cookies
+          </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
