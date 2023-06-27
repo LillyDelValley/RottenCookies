@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 
 function TopShowCarousel() {
 
@@ -10,10 +11,10 @@ function TopShowCarousel() {
             <img src="from.png" className="d-block w-100 testImg" alt="..."/>
             </div>
             <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..."/>
+            <img src="from.png" className="d-block w-100 testImg" alt="cookies"/>
             </div>
             <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..."/>
+            <img src="kyle.jpg" className="d-block w-100 testImg" alt="a nice pic"/>
             </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
