@@ -1,0 +1,10 @@
+.cookie {
+max-width: 35px;
+max-height: 35px;
+display: block;
+}
+
+.rc {
+    display: flex;
+    align-items: left;
+}

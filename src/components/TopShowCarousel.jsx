@@ -7,7 +7,7 @@ function TopShowCarousel() {
     <div id="carouselExample" className="carousel slide">
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src="from.png" className="d-block w-100" alt="..."/>
+            <img src="from.png" className="d-block w-100 testImg" alt="..."/>
             </div>
             <div className="carousel-item">
             <img src="..." className="d-block w-100" alt="..."/>
