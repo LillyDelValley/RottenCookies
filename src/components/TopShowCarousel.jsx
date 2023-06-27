@@ -1,7 +1,40 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
+import { useEffect } from 'react'
 
 function TopShowCarousel() {
+
+    const tvShowList = []
+    useEffect(() => {
+    const getTvList = ((async () => {
+        const tvList = await fetch("https://www.episodate.com/api/most-popular?page=1")
+        const tvObj = await tvList.json()
+        // console.log(tvObj.tv_shows[0])
+        for(let i = 0; i < 4; i++) {
+            // console.log(tvObj.tv_shows[i])
+            tvShowList.push(tvObj.tv_shows[i].name)
+        }
+        console.log(tvShowList)
+    }
+    ))()
+//  getTvList()
+    }  //use effect close
+    ,
+    []
+    )   //use effect close
+   
+//EX
+// function TopShowCarousel() {   
+//     const [carouselItems, setCarouselItems] = useState([]);   
+//     useEffect(() => {     
+//         fetch('https://www.episodate.com/api/most-popular?page=1')       
+//         .then((response) => response.json())       
+//         .then((data) => setCarouselItems(data.tv_shows))       
+//         .catch((error) => console.log(error));   
+//     }, 
+//     []);
+//ENDEX
+
 
     return (
     

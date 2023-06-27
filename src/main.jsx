@@ -11,10 +11,10 @@ import './css/footer.css'
 import './css/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+<div>
     <Header />
     <TopShowCarousel />
     <Carousels></Carousels>
     <Footer></Footer>
-  </React.StrictMode>,
+  </div>
 )
