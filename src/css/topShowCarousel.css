@@ -2,8 +2,19 @@
     background-color: rgb(22, 22, 22);
 }
 
-img {
+/* img {
     display: block;
     max-width: 20vw;
     position: relative;
+} */
+
+.carousel-img-adj {
+    width:100%;
+    object-fit: cover;
 }
+
+
+.height-adj {
+    height: 75vh;
+}
+
