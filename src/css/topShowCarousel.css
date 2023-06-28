@@ -2,7 +2,8 @@
     background-color: rgb(22, 22, 22);
 }
 
-.testImg {
+img {
     display: block;
-    max-width: 500px;
+    max-width: 20vw;
+    position: relative;
 }
