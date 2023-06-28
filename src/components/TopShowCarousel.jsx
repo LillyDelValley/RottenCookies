@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import { createElement, useEffect } from 'react'
+import { createElement, useEffect, useState} from 'react'
 
 function TopShowCarousel() {
+  const [tvMazeShowsArray, setTvMazeShowsArray] = useState([]);
 
-const tvMazeShowsArray = []
+//   const tvMazeShowsArray = []
 
     const tvShowList = []
     useEffect(() => {
@@ -25,45 +26,30 @@ const tvMazeShowsArray = []
                 img: tvMazeObj[0].show.image.original
             }
                 tvMazeShowsArray.push(tvMazeShowObject)
+                setTvMazeShowsArray(tvMazeShowsArray)
         }  //END: 2nd for loop L19
                 console.log(tvMazeShowsArray)
     }))()  //END: getTvList L11
 },[])      //END: useEffect L10
     return (
-    
-// EXAMPLE SHOW SEARCH: http://api.tvmaze.com/search/shows?q=from
-// http://api.tvmaze.com/search/shows?q= `${tvShowList[0].name}`
-// http://api.tvmaze.com/search/shows?q=`${tvShowList[0].name}`.image.original
-
-    <div id="carouselExample" className="carousel slide">
-        <div className="carousel-inner">
-            <div className="carousel-item active">
-                <img src="..." className="d-block w-100 testImg" alt="..."/>
-            </div>
-
-            {/* <div className="carousel-item active">
-                <img src="from.png" className="d-block w-100 testImg" alt="..."/>
-            </div>
-
-            <div className="carousel-item">
-            <img src=`http://api.tvmaze.com/search/shows?q=${tvShowList[0].name}.image.original` className="d-block w-100 testImg" alt="http://api.tvmaze.com/search/shows?q=`${tvShowList[0].name}`"/>
-            </div>
-
-            <div className="carousel-item">
-            <img src="kyle.jpg" className="d-block w-100 testImg" alt="a nice pic"/>
-            </div> */}
-
-        </div>
-        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-        </button>
+    <div id="top-carousel" className="carousel slide">
+      <div className="carousel-inner">
+        {tvMazeShowsArray.map((series, index) => (
+          <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
+            <img src={series.img} className="d-block w-100 testImg" alt={series.name} />
+          </div>
+        ))}
+      </div>
+      <button className="carousel-control-prev" type="button" data-bs-target="#top-carousel" data-bs-slide="prev">
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
+      </button>
+      <button className="carousel-control-next" type="button" data-bs-target="#top-carousel" data-bs-slide="next">
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
+      </button>
     </div>
-    )
+  );
 }
 
-export default TopShowCarousel
+export default TopShowCarousel;
