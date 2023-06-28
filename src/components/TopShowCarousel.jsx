@@ -1,54 +1,58 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-import { useEffect } from 'react'
+import { createElement, useEffect } from 'react'
 
 function TopShowCarousel() {
+
+const tvMazeShowsArray = []
 
     const tvShowList = []
     useEffect(() => {
     const getTvList = ((async () => {
         const tvList = await fetch("https://www.episodate.com/api/most-popular?page=1")
         const tvObj = await tvList.json()
-        // console.log(tvObj.tv_shows[0])
         for(let i = 0; i < 4; i++) {
-            // console.log(tvObj.tv_shows[i])
             tvShowList.push(tvObj.tv_shows[i].name)
         }
         console.log(tvShowList)
-    }
-    ))()
-//  getTvList()
-    }  //use effect close
-    ,
-    []
-    )   //use effect close
-   
-//EX
-// function TopShowCarousel() {   
-//     const [carouselItems, setCarouselItems] = useState([]);   
-//     useEffect(() => {     
-//         fetch('https://www.episodate.com/api/most-popular?page=1')       
-//         .then((response) => response.json())       
-//         .then((data) => setCarouselItems(data.tv_shows))       
-//         .catch((error) => console.log(error));   
-//     }, 
-//     []);
-//ENDEX
 
-
+        for (let i = 0; i < tvShowList.length; i++) {
+            let popShow = tvShowList[i]
+            const tvMazeList = await fetch(`http://api.tvmaze.com/search/shows?q=${popShow}`)
+            const tvMazeObj = await tvMazeList.json()
+            let tvMazeShowObject = {
+                name: tvMazeObj[0].show.name,
+                img: tvMazeObj[0].show.image.original
+            }
+                tvMazeShowsArray.push(tvMazeShowObject)
+        }  //END: 2nd for loop L19
+                console.log(tvMazeShowsArray)
+    }))()  //END: getTvList L11
+},[])      //END: useEffect L10
     return (
     
+// EXAMPLE SHOW SEARCH: http://api.tvmaze.com/search/shows?q=from
+// http://api.tvmaze.com/search/shows?q= `${tvShowList[0].name}`
+// http://api.tvmaze.com/search/shows?q=`${tvShowList[0].name}`.image.original
+
     <div id="carouselExample" className="carousel slide">
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src="from.png" className="d-block w-100 testImg" alt="..."/>
+                <img src="..." className="d-block w-100 testImg" alt="..."/>
             </div>
+
+            {/* <div className="carousel-item active">
+                <img src="from.png" className="d-block w-100 testImg" alt="..."/>
+            </div>
+
             <div className="carousel-item">
-            <img src="from.png" className="d-block w-100 testImg" alt="cookies"/>
+            <img src=`http://api.tvmaze.com/search/shows?q=${tvShowList[0].name}.image.original` className="d-block w-100 testImg" alt="http://api.tvmaze.com/search/shows?q=`${tvShowList[0].name}`"/>
             </div>
+
             <div className="carousel-item">
             <img src="kyle.jpg" className="d-block w-100 testImg" alt="a nice pic"/>
-            </div>
+            </div> */}
+
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
