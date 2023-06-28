@@ -1,40 +1,37 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
-import { createElement, useEffect, useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import { createElement, useEffect, useState } from 'react';
 
 function TopShowCarousel() {
-  const [tvMazeShowsArray, setTvMazeShowsArray] = useState([]);
+  const [carouselItems, setCarouselItems] = useState([]);
 
-//   const tvMazeShowsArray = []
+  useEffect(() => {
+    const fetchCarouselItems = async () => {
+      const tvListResponse = await fetch("https://www.episodate.com/api/most-popular?page=1");
+      const tvListData = await tvListResponse.json();
+      const tvShowNames = tvListData.tv_shows.slice(0, 4).map(show => show.name);
 
-    const tvShowList = []
-    useEffect(() => {
-    const getTvList = ((async () => {
-        const tvList = await fetch("https://www.episodate.com/api/most-popular?page=1")
-        const tvObj = await tvList.json()
-        for(let i = 0; i < 4; i++) {
-            tvShowList.push(tvObj.tv_shows[i].name)
-        }
-        console.log(tvShowList)
+      const tvMazeShows = [];
+      for (const showName of tvShowNames) {
+        const tvMazeListResponse = await fetch(`http://api.tvmaze.com/search/shows?q=${showName}`);
+        const tvMazeListData = await tvMazeListResponse.json();
+        const tvMazeShow = {
+          name: tvMazeListData[0].show.name,
+          img: tvMazeListData[0].show.image.original
+        };
+        tvMazeShows.push(tvMazeShow);
+      }
 
-        for (let i = 0; i < tvShowList.length; i++) {
-            let popShow = tvShowList[i]
-            const tvMazeList = await fetch(`http://api.tvmaze.com/search/shows?q=${popShow}`)
-            const tvMazeObj = await tvMazeList.json()
-            let tvMazeShowObject = {
-                name: tvMazeObj[0].show.name,
-                img: tvMazeObj[0].show.image.original
-            }
-                tvMazeShowsArray.push(tvMazeShowObject)
-                setTvMazeShowsArray(tvMazeShowsArray)
-        }  //END: 2nd for loop L19
-                console.log(tvMazeShowsArray)
-    }))()  //END: getTvList L11
-},[])      //END: useEffect L10
-    return (
+      setCarouselItems(tvMazeShows);
+    };
+
+    fetchCarouselItems();
+  }, []);
+
+  return (
     <div id="top-carousel" className="carousel slide">
       <div className="carousel-inner">
-        {tvMazeShowsArray.map((series, index) => (
+        {carouselItems.map((series, index) => (
           <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
             <img src={series.img} className="d-block w-100 testImg" alt={series.name} />
           </div>
