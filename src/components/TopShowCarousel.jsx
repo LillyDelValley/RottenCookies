@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.js';
 import { useEffect, useState } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Image } from 'image-js';
 
 function TopShowCarousel(props) {
     const [carouselItems, setCarouselItems] = useState([]);
@@ -11,15 +12,20 @@ function TopShowCarousel(props) {
     const fetchCarouselItems = async () => {
         const tvListResponse = await fetch("https://www.episodate.com/api/most-popular?page=1");
         const tvListData = await tvListResponse.json();
-        const tvShowNames = tvListData.tv_shows.slice(0, 4).map(show => show.name);
+        const tvShowNames = tvListData.tv_shows.slice(0, 10).map(show => show.name);
 
         const tvMazeShows = [];
         for (const showName of tvShowNames) {
         const tvMazeListResponse = await fetch(`http://api.tvmaze.com/search/shows?q=${showName}`);
         const tvMazeListData = await tvMazeListResponse.json();
+        
+        let objImageUrl = tvMazeListData[0].show.image.original;
+        let image = await Image.load(objImageUrl);
+        let reSizedImg = image.resize({height:700, width:1300}).toDataURL();
+    
         const tvMazeShow = {
             name: tvMazeListData[0].show.name,
-            img: tvMazeListData[0].show.image.original
+            img: reSizedImg
         };
         tvMazeShows.push(tvMazeShow);
         }
@@ -53,7 +59,8 @@ function TopShowCarousel(props) {
             <div className="container-fluid">
                 <h2 className=""> Popular Shows </h2>
             </div>
-            <Carousel swipeable={false} draggable={false} autoPlay={props.deviceType !== "mobile" ? true : false}  showDots={true} responsive={responsive} ssr={true} infinite={true}  autoPlaySpeed={2500} keyBoardControl={true} customTransition="all .5" transitionDuration={500} containerClass="carousel-container" sliderClass="height-adj" removeArrowOnDeviceType={["tablet", "mobile"]} deviceType={props.deviceType} itemClass="item-width-adj h-100" imgClass="h-100">
+            {/* autoPlay={props.deviceType !== "mobile" ? true : false}  */}
+            <Carousel swipeable={false} draggable={false}  showDots={true} responsive={responsive} ssr={true} infinite={true}  autoPlaySpeed={2500} keyBoardControl={true} customTransition="all .5" transitionDuration={500} containerClass="carousel-container" sliderClass="height-adj" removeArrowOnDeviceType={["tablet", "mobile"]} deviceType={props.deviceType} itemClass="item-width-adj h-100" imgClass="h-100">
                 {carouselItems.map((series, index) => ( 
                     <img key={index} className="h-100 carousel-img-adj" src={series.img} alt={series.name} /> 
                     )
