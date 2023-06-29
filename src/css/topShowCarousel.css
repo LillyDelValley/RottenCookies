@@ -10,11 +10,11 @@
 
 .carousel-img-adj {
     width:100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 
 .height-adj {
-    height: 75vh;
+    height: 40vh;
 }
 
