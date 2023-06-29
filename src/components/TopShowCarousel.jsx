@@ -21,7 +21,7 @@ function TopShowCarousel(props) {
         
         let objImageUrl = tvMazeListData[0].show.image.original;
         let image = await Image.load(objImageUrl);
-        let reSizedImg = image.resize({height:700, width:1300}).toDataURL();
+        let reSizedImg = image.resize({height:250, width:700}).toDataURL();
     
         const tvMazeShow = {
             name: tvMazeListData[0].show.name,
