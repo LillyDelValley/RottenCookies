@@ -13,8 +13,19 @@
     object-fit: fill;
 }
 
+.size-adj {
+    width: auto;
+    height: 275px;
+}
 
 .height-adj {
     height: 40vh;
 }
+
+.item-width-adj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
