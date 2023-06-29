@@ -3,38 +3,43 @@ import "../css/footer.css"
 function Footer() {
 
     return (
-        <div>
-<nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    
-     <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/85131/preview.svg" className="d-block w-50 cookie" alt="..."/>
+<div>
+  <footer className="footer">
 
-    <a className="navbar-brand rc" href="#">Rotten Cookies</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Genres</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">RunTimes</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled">Actors</a>
-        </li>
-         <li className="nav-item">
-          <a className="nav-link disabled">Eras</a>
-        </li>
-      </ul>
+    <div className="footerLeft">
+      <img src="cookie75.png" className="cookie" alt="cookie icon"/>
+      <h2 className="rottenCookies">Rotten Cookies
+      </h2>
     </div>
-  </div>
-</nav>
-        </div>
+
+    <div className="footerCenter">
+      <div className="footerTop">
+        <a className="social" href="https://www.nellysugu.com/">
+          🌎
+        </a>
+        <p>|</p>
+        <a className="social" href="https://www.instagram.com/nellysugu/?hl=en">
+          <img src="ig.png" className="social" alt="instagram"/>
+        </a>
+        <p>|</p>
+        <a className="social" href="https://twitter.com/nellysugu?lang=en">
+          <img src="tw.png" className="social" alt="twitter"/>
+        </a>
+        <p>|</p>
+        <a className="social" href="https://www.youtube.com/channel/UC2VzdOrBSqO2XC0OXg3sA6A">
+          <img src="yt.png" className="social" alt="youtube"/>
+        </a>
+        <p>|</p>
+        <a className="social" href="https://secure.givelively.org/donate/technologically-literate-africa-limited/transforming-one-village-at-a-time/nelly-sugu">
+          🌍
+        </a>
+      </div>
+      <div className="footerBottom"> 
+        <p>_______________________<br></br><br></br>This Page Was Powered By<br></br>The Studends of Nelly Sugu</p>
+      </div>
+    </div>  
+  </footer>
+</div>
     )
 }
 
