@@ -9,6 +9,7 @@ import './css/carousels.css'
 import Footer from './components/Footer'
 import './css/footer.css'
 import './css/index.css'
+import CookiePopUp from './components/CookiePopUp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 <div>
@@ -16,5 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <TopShowCarousel />
     <Carousels></Carousels>
     <Footer></Footer>
+    <CookiePopUp></CookiePopUp>
   </div>
 )
