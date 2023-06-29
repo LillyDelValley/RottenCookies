@@ -13,6 +13,7 @@ function Header() {
   const handleSearch = () => {
     console.log("Performing search:", searchQuery);
     setVideoId(""); // Reset the video ID
+    setSearchQuery(""); // Clear the search bar
     fetchVideos();
     openModal();
   };
