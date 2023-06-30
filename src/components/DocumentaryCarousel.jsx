@@ -31,7 +31,7 @@ function DocumentaryCarousel(props) {
         const tvMazeShows = [];
         for (const showName of tvShowNames) {
             
-        const tvMazeListResponse = await fetch(`http://api.tvmaze.com/search/shows?q=${showName}`);
+        const tvMazeListResponse = await fetch(`https://api.tvmaze.com/search/shows?q=${showName}`);
         const tvMazeListData = await tvMazeListResponse.json();
         // this call to TvMaze APi with our first API list of names fails because some names arent in the TvMaze API 
         // I only add the TvMaze Data to our Carousel if the information is found 

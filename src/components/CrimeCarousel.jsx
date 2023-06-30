@@ -30,7 +30,7 @@ function CrimeCarousel(props) {
         const tvShowNames = tvListData.results.slice(0, 10).map(show => show.name);
         const tvMazeShows = [];
         for (const showName of tvShowNames) {
-        const tvMazeListResponse = await fetch(`http://api.tvmaze.com/search/shows?q=${showName}`);
+        const tvMazeListResponse = await fetch(`https://api.tvmaze.com/search/shows?q=${showName}`);
         const tvMazeListData = await tvMazeListResponse.json();
 
         if (tvMazeListData[0]) {
