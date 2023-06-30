@@ -17,6 +17,10 @@
     width: auto;
     height: 275px;
 }
+.place-holder-img {
+    width:100%;
+    object-fit: cover;
+}
 
 .height-adj {
     height: 35vh;
