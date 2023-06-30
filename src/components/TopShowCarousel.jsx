@@ -19,7 +19,7 @@ function TopShowCarousel(props) {
         const tvShowNames = await tvListData.tv_shows.slice(0, 12).map(show => show.name);
 
         for (const showName of tvShowNames) {
-            const tvMazeListResponse = await fetch(`http://api.tvmaze.com/search/shows?q=${showName}`);
+            const tvMazeListResponse = await fetch(`https://api.tvmaze.com/search/shows?q=${showName}`);
             const tvMazeListData = await tvMazeListResponse.json();
             if (tvMazeListData[0]) {
                 if (tvMazeListData[0].show.image != null) {
