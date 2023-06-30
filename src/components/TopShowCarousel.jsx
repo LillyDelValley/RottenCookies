@@ -102,7 +102,7 @@ function TopShowCarousel(props) {
         return (
             <Carousel
             swipeable={false} responsive={responsive} infinite={true} ssr={true} containerClass="carousel-container" sliderClass="height-adj" removeArrowOnDeviceType={["tablet", "mobile"]} deviceType={props.deviceType} itemClass="item-width-adj h-100 carousel-item-padding-40-px" imgClass="h-100">
-            <div className="size-adj">
+            <div className="size-adj test">
                 <img className="h-100 place-holder-img" src="loading-75.gif" alt="Placeholder" />
             </div>
             <div className="size-adj">
