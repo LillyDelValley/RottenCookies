@@ -117,29 +117,8 @@ function Header() {
               id="navbarNav"
             >
               <ul className="navbar-nav align-items-baseline">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Genres
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    RunTimes
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link disabled">Actors</a>
-                </li>
-                <li className="nav-item me-5">
-                  <a className="nav-link disabled">Eras</a>
-                </li>
                 <li>
-                  <div className="input-group input-group-sm mb-3">
+                  <div className="input-group input-group-sm">
                     <span
                       className="input-group-text"
                       id="inputGroup-sizing-sm"
@@ -196,4 +175,3 @@ function Header() {
 
 export default Header;
 
-//https://www.googleapis.com/youtube/v3/search?key=AIzaSyBsE47E8DLIHgY4_ymj81vvKthrTPn2HCc&q= ${searchQuery} trailer

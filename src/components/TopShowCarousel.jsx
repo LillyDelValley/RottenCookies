@@ -36,13 +36,10 @@ function TopShowCarousel(props) {
                     tvMazeShows.push(tvMazeShow);
                 }
 
-
             } else {
                 console.log("no result found")
             }
-
         }
-
         setCarouselItems(tvMazeShows);
     };
     fetchCarouselItems();
@@ -57,7 +54,7 @@ function TopShowCarousel(props) {
             },
             tablet: {
                 breakpoint: { max: 1024, min: 464 },
-                items: 4,
+                items: 3,
                 slidesToSlide: 2 // optional, default to 1.
             },
             mobile: {
@@ -69,7 +66,7 @@ function TopShowCarousel(props) {
         return (
         
                 <div className="container-fluid">
-                    <h2 className="mb-0"> Popular Shows </h2>
+                    <h2 className="mb-0 text-center text-md-start"> Popular Shows </h2>
                     <Carousel swipeable={false} draggable={false}  showDots={true} autoPlay={props.deviceType !== "mobile" ? true : false} responsive={responsive} ssr={true} infinite={true}  autoPlaySpeed={2500} keyBoardControl={true} customTransition="all .5" transitionDuration={500} containerClass="carousel-container" sliderClass="height-adj" removeArrowOnDeviceType={["tablet", "mobile"]} deviceType={props.deviceType} itemClass="item-width-adj h-100 carousel-item-padding-40-px" imgClass="h-100">
                         {carouselItems.map((series, index) => ( 
                             <div className="size-adj">
@@ -90,7 +87,7 @@ function TopShowCarousel(props) {
             },
             tablet: {
                 breakpoint: { max: 1024, min: 464 },
-                items: 4,
+                items: 3,
                 slidesToSlide: 2 // optional, default to 1.
             },
             mobile: {
